@@ -1,15 +1,44 @@
 %% Ejercicios %%
  %1. Crea una base de conocimiento e implementa las relaciones de acuerdo a los siguientes eneunciados*/
     %a) Dos personas viven en la misma casa si tienen la misma direccion
-    %
+    direccion(lisa,'Avenida siempre viva 742').
+    direccion(bart,'Avenida siempre viva 742').
+    direccion(dory,'P. Sherman Calle Wallaby 42, Sidney').
+%Regla
+    casa(X,Y):-(direccion(X,Z),direccion(Y,Z)).
     %b) Los que juegan basquetbol o futbol americano son deportistas
-    %
+    personas(jordan,'basquetbol').
+    personas(lebron,'basquetbol').
+    personas(oliver,'soccer').
+    personas(brady,'futbol americano').
+    %regla
+    deportista(X):-(personas(X,'futbol americano');personas(X,'basquetbol')).
     %c) Eres britanico si eres gales, ingles, escoces o irlandes
-    %
+    nacionalidad(pedro,'mexicana').
+    nacionalidad(sandra,'ingles').
+    nacionalidad(charles,'Gales').
+    nacionalidad(etni,'mexicana').
+    nacionalidad(marco,'escoses').
+    nacionalidad(daniel,'irlandes')
+    %regla
+    britanico(X):-(   nacionalidad(X,'Gales');nacionalidad(X,'escoses');nacionalidad(X,'ingles');nacionalidad(X,'irlandes')).
     %d) Te pueden multar si no has pagado la tenencia de tu automovil
-    %
+    auto('LKS-870-A','pagado').
+    auto('PVG-568-D','pagado').
+    auto('ABC-123-F','adeudo').
+    %regla
+    multa(X):-(auto(X,'pagado')).
+    
     %e) Una persona puede ser ciudadano mexicano si tiene la nacionalidad mexicana, es mayor edad y es honesto
-    %
+    edad(etni,18).
+    edad(pedro,30).
+    edad(sandra,25).
+    edad(charles,15).
+    honest(pedro, 'F').
+    honest(charles,'V').
+    honest(etni, 'V')
+    %regla
+    ciudadano_mexa(X):-(   nacionalidad(X,'mexicana'),honest(X,'V'),edad(X,N), N >= 18).
   %2. Implementa una funcion que devuelva el maximo de una lista de numeros, todas las funciones auxiliares deben ser propias. Ademas, incluye como seria la ejecucion de la lista [1, 2, 3, 2, 1,]
   %
   
