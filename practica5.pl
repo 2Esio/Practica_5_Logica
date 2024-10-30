@@ -19,7 +19,7 @@
     nacionalidad(charles,'Gales').
     nacionalidad(etni,'mexicana').
     nacionalidad(marco,'escoses').
-    nacionalidad(daniel,'irlandes')
+    nacionalidad(daniel,'irlandes').
     %regla
     britanico(X):-(   nacionalidad(X,'Gales');nacionalidad(X,'escoses');nacionalidad(X,'ingles');nacionalidad(X,'irlandes')).
     %d) Te pueden multar si no has pagado la tenencia de tu automovil
@@ -36,7 +36,7 @@
     edad(charles,15).
     honest(pedro, 'F').
     honest(charles,'V').
-    honest(etni, 'V')
+    honest(etni, 'V').
     %regla
     ciudadano_mexa(X):-(   nacionalidad(X,'mexicana'),honest(X,'V'),edad(X,N), N >= 18).
   %2. Implementa una funcion que devuelva el maximo de una lista de numeros, todas las funciones auxiliares deben ser propias. Ademas, incluye como seria la ejecucion de la lista [1, 2, 3, 2, 1,]
