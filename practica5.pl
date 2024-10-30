@@ -27,7 +27,7 @@
     auto('PVG-568-D','pagado').
     auto('ABC-123-F','adeudo').
     %regla
-    multa(X):-(auto(X,'pagado')).
+    multa(X):-(auto(X,'adeudo')).
     
     %e) Una persona puede ser ciudadano mexicano si tiene la nacionalidad mexicana, es mayor edad y es honesto
     edad(etni,18).
