@@ -41,6 +41,10 @@
     ciudadano_mexa(X):-(   nacionalidad(X,'mexicana'),honest(X,'V'),edad(X,N), N >= 18).
   %2. Implementa una funcion que devuelva el maximo de una lista de numeros, todas las funciones auxiliares deben ser propias. Ademas, incluye como seria la ejecucion de la lista [1, 2, 3, 2, 1,]
   %
+maximo([X], X).
+maximo([X|Xs], Max) :-
+    maximo(Xs, TailMax),
+    Max is max(X, TailMax).
   
   %3. Implementa una funcion que devuelva la cantidad de numeros distintos que hay en una lista
 % Caso base para una lista vacía.
@@ -87,3 +91,12 @@ esta_en_lista(Elemento, [_ | Cola]) :-
 
   
   %4. Implementa la funcion de Fibonacci. Incluye como seria la ejecucion de Fibonacci con 5.
+fibonacci(0, 0).
+fibonacci(1, 1).
+fibonacci(N, Resultado) :-
+    N > 1,
+    N1 is N - 1,
+    N2 is N - 2,
+    fibonacci(N1, Resultado1),
+    fibonacci(N2, Resultado2),
+    Resultado is Resultado1 + Resultado2.
